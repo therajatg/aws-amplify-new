@@ -12,7 +12,7 @@ export const AuthScreen = () => {
           // src="http://res.cloudinary.com/therajatg/image/upload/f_auto,q_auto/video library/promise in javascript/Promise_in_JavaScript_jo1tb3"
           alt="logo"
           src="https://res.cloudinary.com/therajatg/image/upload/v1699706739/dataPartnersLogo_sb4rgi.png"
-          className="h-10 md:h-20 mb-8"
+          className="h-20 md:h-20 mb-8"
         />
         <Outlet />
       </div>

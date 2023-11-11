@@ -22,7 +22,7 @@ export const SignIn = () => {
   };
 
   return (
-    <div className="flex flex-col w-full h-full max-w-sm gap-y-8">
+    <div className="flex flex-col w-full h-full max-w-[250px] gap-y-8">
       <form
         className="flex flex-col w-full gap-y-6 h-full"
         onSubmit={submitHandler}
