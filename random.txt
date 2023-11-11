@@ -1,0 +1,46 @@
+function App({ signOut }) {
+  const [loggedIn, setLoggedIn] = useState(false);
+  const navigate = useNavigate();
+
+  const assessLoggedInState = async () => {
+    try {
+      const res = await Auth.currentAuthenticatedUser();
+      setLoggedIn(true);
+    } catch {
+      console.log("Not logged in");
+      setLoggedIn(false);
+    }
+  };
+
+  const signOut = async () => {
+    try {
+      await Auth.signOut();
+      setLoggedIn(false);
+    } catch (e) {
+      console.log("error signing out", e);
+    }
+  };
+
+  useEffect(() => {
+    assessLoggedInState();
+  }, []);
+  return loggedIn ? (
+    <button onClick={signOut}>Sign Out</button>
+  ) : (
+    <button onClick={() => navigate("/")}>Sign In</button>
+  );
+  // <View className="App">
+  //   <Card>
+  //     {/* <Image src={logo} className="App-logo" alt="logo" /> */}
+  //     <Heading level={1} onClick={assessLoggedInState}>
+  //       We now have Auth!
+  //     </Heading>
+  //   </Card>
+  //   <Button onClick={signOut} className="bg-neutral-100 text-red-500">
+  //     Sign Out
+  //   </Button>
+  // </View>
+}
+
+export default withAuthenticator(App);
+ 
